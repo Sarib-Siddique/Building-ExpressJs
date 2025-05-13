@@ -1,5 +1,5 @@
-const Route = require("./route"); // Adjust path as needed
-const Layer = require("./layer"); // Adjust path as needed
+const Route = require("./route");
+const Layer = require("./layer");
 
 export const proto = function (options) {
   const opts = options || {};
@@ -29,4 +29,11 @@ proto.route = function route(path) {
   this.stack.push(layer);
 
   return route;
+};
+
+proto.handle = function handle(req, res, out) {
+  var self = this;
+  var stack = self.stack;
+
+  console.log(stack);
 };
